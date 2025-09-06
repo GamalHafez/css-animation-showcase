@@ -1,0 +1,134 @@
+body {
+  background: #011027;
+  color: #759de8;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 800px;
+  margin: 120px auto;
+  justify-items: center;
+}
+
+@media (max-width: 800px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+}
+
+/* moon orbit animation */
+
+.orbit-animation {
+  position: relative;
+}
+
+.orbit {
+  position: relative;
+  width: 137px;
+  aspect-ratio: 1/1;
+  animation: moonRotate 5s linear infinite;
+}
+
+.earth {
+  position: absolute;
+  width: 145px;
+  aspect-ratio: 1/1;
+  background-image: url(./images/earth.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.moon {
+  position: absolute;
+  background-image: url(./images/full-moon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 35px;
+  aspect-ratio: 1/1;
+  top: 100%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes moonRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* hover clock animation */
+
+.clock {
+  width: 145px;
+  aspect-ratio: 1/1;
+  background: #052f73;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(3, 45, 181, 0.3), 0 8px 16px rgba(3, 45, 181, 0.3);
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+@keyframes clockRotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.bar {
+  width: 0.15rem;
+  height: 50px;
+  height: calc(50% - 1.8rem);
+  border-radius: 0.2rem;
+  background: #1e63e3;
+  margin-block-start: 1.8rem;
+  /* animation */
+  transform-origin: bottom center;
+  animation: clockRotate 15s linear infinite;
+}
+
+.circle {
+  position: absolute;
+  width: 0.7rem;
+  aspect-ratio: 1/1;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  background: #1e63e3;
+}
+
+.number {
+  position: absolute;
+}
+
+.three {
+  right: 5px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.six {
+  bottom: 5px;
+}
+
+.nine {
+  left: 12px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.twelve {
+  top: 3px;
+}
